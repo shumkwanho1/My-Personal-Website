@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Personal Website
 
-## Getting Started
+Welcome to my personal website! This site showcases my personal information and finished projects. It is built using a modern tech stack including Next.js, React.js, Tailwind CSS, PocketBase, and CSS animations.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js**: For server-side rendering and static site generation.
+- **React.js**: For building dynamic and interactive user interfaces.
+- **Tailwind CSS**: For utility-first CSS framework to style the website.
+- **PocketBase**: For backend services and database management.
+- **CSS Animations**: To add engaging and dynamic effects to the website.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Main Page
+The main page provides an overview of my personal information, including:
+- **Introduction**: A brief introduction about myself.
+- **Skills**: A list of my technical skills and expertise.
+- **Experience**: Details about my professional experience and achievements.
+- **Contact Information**: Ways to get in touch with me.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 2. Project Page
+The project page showcases my finished projects with detailed information, including:
+- **Project Thumbnails**: High-quality images or icons representing each project.
+- **Project Titles**: Clear and concise titles for each project.
+- **Brief Descriptions**: Short descriptions to give visitors an idea of what each project is about.
+- **Detailed Views**: Clickable links or buttons that take visitors to detailed views of each project, including:
+  - **Detailed Description**: A comprehensive description of the project.
+  - **Technologies Used**: A list of technologies, tools, or frameworks used in the project.
+  - **Images/Videos**: High-quality images or videos showcasing the project.
+  - **Links**: Links to live demos, GitHub repositories, or any other relevant resources.
