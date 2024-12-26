@@ -3,7 +3,7 @@
 import { Tangerine } from 'next/font/google'
 import Arrow from "./Arrow";
 import { useEffect, useState } from 'react';
-
+import SkillBar from './Skillbar';
 type language = { name: string, proficiency: number }
 
 type skills = {
@@ -54,14 +54,14 @@ export default function Skills() {
 
     const [y, setY] = useState(0)
 
-    const handleScroll = ()=>{
+    const handleScroll = () => {
         setY(window.scrollY)
     }
 
-    useEffect(()=>{
-        window.addEventListener("scroll",handleScroll)
-        return () => window.removeEventListener("scroll",handleScroll)
-    },[y])
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll)
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [y])
 
 
 
@@ -80,8 +80,7 @@ export default function Skills() {
                                 <div className={`flex items-center pl-3 pb-2  ${y > 1800 ? 'skillbar' : ''}`} key={index}>
                                     <div className="flex-1">{elem.name}</div>
                                     <div className={`[flex:2] h-1.5 flex items-center `}>
-                                        <div className={`bg-[#5569DC] h-full w-[${elem.proficiency}%] `}></div>
-                                        <div className={`w-[${100-elem.proficiency}%] bg-indigo-400 h-0.5 `}></div>
+                                        <SkillBar proficiency={elem.proficiency} />
                                     </div>
                                 </div>
                             )
@@ -96,8 +95,7 @@ export default function Skills() {
                                 <div className={`flex items-center pl-3 pb-2 ${y > 1800 ? 'skillbar' : ''}`} key={index}>
                                     <div className="flex-1">{elem.name}</div>
                                     <div className={`[flex:2] h-1.5 flex items-center`}>
-                                        <div className={`w-[${elem.proficiency}%] bg-[#5569DC] h-full `}></div>
-                                        <div className={`w-[${100-elem.proficiency}%] bg-indigo-400 h-0.5 `}></div>
+                                        <SkillBar proficiency={elem.proficiency} />
                                     </div>
                                 </div>
                             )
@@ -113,8 +111,7 @@ export default function Skills() {
                                 <div className={`flex items-center pl-3 pb-2 ${y > 2100 ? 'skillbar' : ''}`} key={index}>
                                     <div className="flex-1">{elem.name}</div>
                                     <div className={`[flex:2] h-1.5 flex items-center`}>
-                                        <div className={`w-[${elem.proficiency}%] bg-[#5569DC] h-full `}></div>
-                                        <div className={`w-[${100-elem.proficiency}%]  bg-indigo-400 h-0.5 `}></div>
+                                        <SkillBar proficiency={elem.proficiency} />
                                     </div>
                                 </div>
                             )
@@ -130,8 +127,7 @@ export default function Skills() {
                                 <div className={`flex items-center pl-3 pb-2 ${y > 2100 ? 'skillbar' : ''}`} key={index}>
                                     <div className="flex-1">{elem.name}</div>
                                     <div className={`[flex:2] h-1.5 flex items-center`}>
-                                        <div className={` bg-[#5569DC] h-full w-[${elem.proficiency}%]`}></div>
-                                        <div className={`w-[${100-elem.proficiency}%]  bg-indigo-400 h-0.5 `}></div>
+                                        <SkillBar proficiency={elem.proficiency} />
                                     </div>
                                 </div>
                             )
