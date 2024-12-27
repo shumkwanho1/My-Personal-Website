@@ -4,7 +4,8 @@ import { WEB_URL } from "../global"
 import TechStack from "./TechStack"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { faArrowLeft, faArrowRight, faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons"
+import { useState } from "react"
 type modalProps = {
     projectData: any
     removeModal: () => void
@@ -12,19 +13,25 @@ type modalProps = {
     previousProject: () => void
 }
 export default function Modal(modalProps: modalProps) {
-    const { projectData, removeModal,nextProject,previousProject } = modalProps
+    const { projectData, removeModal, nextProject, previousProject } = modalProps
 
     if (Object.keys(projectData).length == 0) {
         return <></>
     }
 
 
-    const { collectionId, expand, full_description, id, link, main_photo, project_name } = projectData
+
+    const { collectionId, expand, full_description, id, github_link, main_photo, project_name, deployed_link } = projectData
+    const deployed = deployed_link != ""
 
     const feature = expand?.feature_via_project_id
     const techStack = expand?.techStack
 
+    const [hideFeature, setHideFeature] = useState(false)
 
+    function toggleShowFeature() {
+        setHideFeature(!hideFeature)
+    }
 
 
     return (
@@ -45,22 +52,35 @@ export default function Modal(modalProps: modalProps) {
                         </div>
 
                         <div className="h-3/5 w-full ">
-                            <h2 className="text-2xl text-[#5569DC] my-6">{project_name}</h2>
+                            <h2 className="text-2xl text-[#5569DC] my-6 capitalize">{project_name}</h2>
                             <p>{full_description}</p>
+
                             <hr className="border-indigo-700 my-6" />
-
-                            <div className=" text-xl mb-4">GitHub Link:</div>
+                            <div className=" text-xl mb-6 cursor-pointer" onClick={toggleShowFeature}> Features: &emsp;
+                                <span >{hideFeature ? <FontAwesomeIcon icon={faCaretDown} /> : <FontAwesomeIcon icon={faCaretUp} />}
+                                </span>
+                            </div>
+                            <div className={`feature h-fit ${hideFeature ? "hide-feature" : ""}`}>
+                                {feature.map((elem: any, index: string) => {
+                                    return (
+                                        <div key={index} >
+                                            <span className="font-bold">{elem.feature} : </span>
+                                            <span className="italic text-sm"> {elem.description}</span>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                            <hr className="border-indigo-700 my-6" />
+                            <div className=" text-xl mb-4">{deployed ? "Deployed " : "GitHub "} Link:</div>
                             <div className="hover:cursor-pointer italic ml-6 truncate">
-                                <Link href={link}>
-                                    {link}
+                                <Link href={deployed ? deployed_link : github_link}>
+                                    {deployed ? deployed_link : github_link}
                                 </Link>
-
                             </div>
 
                             <hr className="border-indigo-700 my-6" />
 
                             <div className=" text-xl mb-6">Tech Stack:</div>
-
                             <div className="grid grid-cols-3 gap-4 justify-items-center">
                                 {techStack.map((item: any) => <TechStack techStack={item} />)}
                             </div>
@@ -71,10 +91,10 @@ export default function Modal(modalProps: modalProps) {
                     </div>
                 </div>
             </div>
-            <div className="fixed top-[22rem] left-[12rem] text-7xl z-40 text-white hover:cursor-pointer" onClick={(()=>previousProject())}>
+            <div className="fixed top-[22rem] left-[12rem] text-7xl z-40 text-white hover:cursor-pointer" onClick={(() => previousProject())}>
                 <FontAwesomeIcon icon={faArrowLeft} />
             </div>
-            <div className="fixed top-[22rem] right-[12rem] text-7xl z-40 text-white hover:cursor-pointer" onClick={()=>nextProject()}>
+            <div className="fixed top-[22rem] right-[12rem] text-7xl z-40 text-white hover:cursor-pointer" onClick={() => nextProject()}>
                 <FontAwesomeIcon icon={faArrowRight} />
             </div>
         </>

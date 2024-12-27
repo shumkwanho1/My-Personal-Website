@@ -53,6 +53,7 @@ export default function Skills() {
 
 
     const [y, setY] = useState(0)
+    const [showSkillAnimation, setShowwSkillAnimation] = useState(false)
 
     const handleScroll = () => {
         setY(window.scrollY)
@@ -60,6 +61,9 @@ export default function Skills() {
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll)
+        if (y > 1800) {
+            setShowwSkillAnimation(true)
+        }
         return () => window.removeEventListener("scroll", handleScroll)
     }, [y])
 
@@ -77,7 +81,7 @@ export default function Skills() {
                         <div className={`mb-4 ${tangerine.className} text-5xl`}>Languages</div>
                         {mySkills.language.map((elem, index) => {
                             return (
-                                <div className={`flex items-center pl-3 pb-2  ${y > 1800 ? 'skillbar' : ''}`} key={index}>
+                                <div className={`flex items-center pl-3 pb-2  ${showSkillAnimation ? 'skillbar' : ''}`} key={index}>
                                     <div className="flex-1">{elem.name}</div>
                                     <div className={`[flex:2] h-1.5 flex items-center `}>
                                         <SkillBar proficiency={elem.proficiency} />
@@ -92,7 +96,7 @@ export default function Skills() {
 
                         {mySkills.framework.map((elem, index) => {
                             return (
-                                <div className={`flex items-center pl-3 pb-2 ${y > 1800 ? 'skillbar' : ''}`} key={index}>
+                                <div className={`flex items-center pl-3 pb-2 ${showSkillAnimation ? 'skillbar' : ''}`} key={index}>
                                     <div className="flex-1">{elem.name}</div>
                                     <div className={`[flex:2] h-1.5 flex items-center`}>
                                         <SkillBar proficiency={elem.proficiency} />
@@ -108,7 +112,7 @@ export default function Skills() {
 
                         {mySkills.database.map((elem, index) => {
                             return (
-                                <div className={`flex items-center pl-3 pb-2 ${y > 2100 ? 'skillbar' : ''}`} key={index}>
+                                <div className={`flex items-center pl-3 pb-2 ${showSkillAnimation ? 'skillbar' : ''}`} key={index}>
                                     <div className="flex-1">{elem.name}</div>
                                     <div className={`[flex:2] h-1.5 flex items-center`}>
                                         <SkillBar proficiency={elem.proficiency} />
@@ -124,7 +128,7 @@ export default function Skills() {
                         <div className={`mb-4 ${tangerine.className} text-5xl`}>Other Tools</div>
                         {mySkills.tools.map((elem, index) => {
                             return (
-                                <div className={`flex items-center pl-3 pb-2 ${y > 2100 ? 'skillbar' : ''}`} key={index}>
+                                <div className={`flex items-center pl-3 pb-2 ${showSkillAnimation? 'skillbar' : ''}`} key={index}>
                                     <div className="flex-1">{elem.name}</div>
                                     <div className={`[flex:2] h-1.5 flex items-center`}>
                                         <SkillBar proficiency={elem.proficiency} />
@@ -135,7 +139,8 @@ export default function Skills() {
                     </div>
                 </div>
             </section>
-            <Arrow />
+            {y > 600? <Arrow /> : ""}
+            
         </>
     )
 }

@@ -6,15 +6,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Lobster&family=Lusitana:wght@400;700&family=Tangerine:wght@400;700&display=swap');
 
 @layer utilities {
+
     /* Hide scrollbar for Chrome, Safari and Opera */
     .no-scrollbar::-webkit-scrollbar {
         display: none;
     }
-   /* Hide scrollbar for IE, Edge and Firefox */
+
+    /* Hide scrollbar for IE, Edge and Firefox */
     .no-scrollbar {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-  }
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
 }
 
 html,
@@ -104,26 +108,39 @@ body {
         display: flex;
         width: calc(300px * 14);
     }
-    
+
 }
 
-.show-modal{
+.show-modal {
     animation: show-modal 0.5s ease-in-out;
 }
 
 
 
-@keyframes show-modal{
+@keyframes show-modal {
     0% {
-        transform:scale(0)
+        transform: scale(0)
     }
-    60%{
+
+    60% {
         transform: scale(1.2);
     }
-    80%{
+
+    80% {
         transform: scale(0.8);
     }
-    100%{
+
+    100% {
         transform: scale(1);
     }
+}
+
+.feature {
+    overflow: auto;
+    transition: all 1s linear;
+}
+
+.hide-feature {
+    height: 0;
+    overflow: hidden;
 }

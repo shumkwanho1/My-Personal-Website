@@ -3,6 +3,7 @@ import { useState } from "react"
 import ProjectCard from "./ProjectCard"
 import Modal from "./Modal"
 import pbClient from "../utils/pocketbase"
+import Link from "next/link"
 type projectProps = {
     projectData: any[]
 }
@@ -29,7 +30,6 @@ export default function Project(projectProps: projectProps) {
     }
     function nextProject() {
         const nextProjectIndex = (showProject.sequence + 1) % projectLength
-        console.log(nextProjectIndex);
         const nextProject = projectData.filter((elem)=> elem.sequence == nextProjectIndex)
         
         getProjectDetail(nextProject[0].id)
@@ -52,6 +52,10 @@ export default function Project(projectProps: projectProps) {
                 </div>
             </div>
             <Modal projectData={showProject} removeModal={removeModal} nextProject={nextProject} previousProject={previousProject} />
+
+            <Link href="/">
+            <div className="fixed bottom-12 right-16 bg-indigo-500 text-white p-2 rounded-md">Back to Main Page</div>
+            </Link>
         </>
     )
 }
