@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image"
-import { WEB_URL } from "../global"
+import { WEB_URL } from "../../global"
 import Link from "next/link"
 
 

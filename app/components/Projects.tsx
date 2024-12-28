@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { WEB_URL } from "../global";
+import { WEB_URL } from "../../global";
 type projectsProps = {
     projectData: any[]
 }

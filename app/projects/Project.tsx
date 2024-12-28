@@ -11,7 +11,7 @@ export default function Project(projectProps: projectProps) {
     const { projectData } = projectProps
     const projectLength = projectData.length
     const [isShowModal, setIsShowModal] = useState(false)
-    const [showProject, setShowProject] = useState({})
+    const [showProject, setShowProject] = useState<any>({})
 
     async function getProjectDetail(id: string) {
         const data = await pbClient.getProjectDetail(id)
