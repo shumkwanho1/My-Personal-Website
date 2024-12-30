@@ -144,3 +144,11 @@ body {
     height: 0;
     overflow: hidden;
 }
+
+.project-card{
+    transition: all 0.5s;
+}
+.project-card:hover{
+    filter: brightness(0.7);
+
+}
