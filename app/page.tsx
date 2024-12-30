@@ -5,7 +5,6 @@ import About from './components/About';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
-import Footer from './components/Footer';
 import Projects from './components/Projects';
 import pbClient from "./utils/pocketbase"
 
@@ -14,6 +13,7 @@ export default async function Home() {
 
   const data = await pbClient.getProjects()
 
+  
   return (
     <div>
       <Nav />
@@ -27,9 +27,6 @@ export default async function Home() {
 
       <Skills />
 
-
-
-      <Footer />
     </div>
 
   );

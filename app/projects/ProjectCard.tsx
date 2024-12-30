@@ -14,7 +14,7 @@ export default function ProjectCard(projectCardProps: projectCardProps) {
     const { projectData, showModal } = projectCardProps
     const { collectionId, expand, full_description, id, github_link, main_photo, project_name, deployed_link } = projectData
 
-    console.log(projectData);
+
 
     const deployed = deployed_link != ""
 
@@ -33,6 +33,8 @@ export default function ProjectCard(projectCardProps: projectCardProps) {
                 <div className="capitalize text-xl h-3/12 text-[#5569DC]">{project_name}</div>
                 <div className="text-wrap truncate h-4/12 text-sm leading-4 italic line-clamp-2">{full_description}</div>
                 <div className="h-3/12 text-xs truncate w-full">
+                   
+
                     {deployed ? "Deployed Link :" : "GitHub Link :"}
                     <div className="underline hover:cursor pl-8 mt-1" onClick={(e) => e.stopPropagation()}>
                         <Link href={deployed ? deployed_link : github_link}>

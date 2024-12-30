@@ -18,9 +18,10 @@ class PbClient extends PocketBase {
     public async getProjects() {
 
         try {
-            const res = await fetch(`${this.pocketBaseIP}/api/collections/projects/records?expand=feature_via_project_id,techStack&sort=-sequence`)
+            const res = await fetch(`${this.pocketBaseIP}/api/collections/projects/records?expand=feature_via_project,techStack&sort=-sequence`)
             const data = await res.json()
             return data.items
+
         } catch (error) {
             console.log(error)
             return []
