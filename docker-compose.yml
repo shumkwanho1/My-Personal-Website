@@ -12,9 +12,9 @@ services:
     ports:
       - "8090:8090"
     volumes:
-      - ~/personal-website/pb_data:/pb_data
-      - ~/personal-website/pb_public:/pb_public 
-      - ~/personal-website/pb_hooks:/pb_hooks 
+      - ~/My-Personal-Website/pb_data:/pb_data
+      - ~/My-Personal-Website/pb_public:/pb_public 
+      - ~/My-Personal-Website/pb_hooks:/pb_hooks 
     healthcheck: 
       test: wget --no-verbose --tries=1 --spider http://localhost:8090/api/health || exit 1
       interval: 5s
