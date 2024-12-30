@@ -22,6 +22,9 @@ export default function Modal(modalProps: modalProps) {
 
 
     const { collectionId, expand, full_description, id, github_link, main_photo, project_name, deployed_link } = projectData
+
+
+    
     const deployed = deployed_link != ""
 
     const feature = expand?.feature_via_project_id
@@ -82,7 +85,7 @@ export default function Modal(modalProps: modalProps) {
 
                             <div className=" text-xl mb-6">Tech Stack:</div>
                             <div className="grid grid-cols-3 gap-4 justify-items-center">
-                                {techStack.map((item: any) => <TechStack techStack={item} />)}
+                                {techStack.map((item: any,) => <TechStack techStack={item} />)}
                             </div>
                         </div>
 

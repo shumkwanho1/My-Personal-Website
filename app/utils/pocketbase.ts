@@ -1,14 +1,16 @@
 import PocketBase from "pocketbase"
-import {WEB_URL} from "../../global"
+import { WEB_URL } from "../../global"
 
 
 class PbClient extends PocketBase {
 
-    private pocketBaseIP:string
+    private pocketBaseIP: string
 
     public constructor() {
         super(WEB_URL)
         this.pocketBaseIP = WEB_URL
+
+
     }
 
 
@@ -16,8 +18,7 @@ class PbClient extends PocketBase {
     public async getProjects() {
 
         try {
-            console.log(this.pocketBaseIP)
-            const res = await fetch(`${this.pocketBaseIP}/api/collections/projects/records?expand=techStack&sort=+sequence`)
+            const res = await fetch(`${this.pocketBaseIP}/api/collections/projects/records?expand=feature_via_project_id,techStack`)
             const data = await res.json()
             return data.items
         } catch (error) {
@@ -28,19 +29,6 @@ class PbClient extends PocketBase {
     }
 
 
-    public async getProjectDetail(id: string) {
-        try {
-            console.log(this.pocketBaseIP)
-            const res = await fetch(`${this.pocketBaseIP}/api/collections/projects/records/${id}?expand=feature_via_project_id,techStack`)
-            const data = await res.json()
-            return data
-            
-        } catch (error) {
-            console.log(error);
-
-        }
-
-    }
 
 
 }

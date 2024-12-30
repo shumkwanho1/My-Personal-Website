@@ -13,10 +13,7 @@ export default function Project(projectProps: projectProps) {
     const [isShowModal, setIsShowModal] = useState(false)
     const [showProject, setShowProject] = useState<any>({})
 
-    async function getProjectDetail(id: string) {
-        const data = await pbClient.getProjectDetail(id)
-        setShowProject(data)
-    }
+
 
     function removeModal() {
         setShowProject({})
@@ -24,22 +21,22 @@ export default function Project(projectProps: projectProps) {
     }
 
     function showModal(projectData: any) {
-        getProjectDetail(projectData.id)
-
-        setTimeout(() => setIsShowModal(true), 100)
+        setShowProject(projectData)
+        setIsShowModal(true)
     }
+
     function nextProject() {
         const nextProjectIndex = (showProject.sequence + 1) % projectLength
         const nextProject = projectData.filter((elem)=> elem.sequence == nextProjectIndex)
         
-        getProjectDetail(nextProject[0].id)
-
+        setShowProject(nextProject[0])
     }
     function previousProject() {
         const previousProjectIndex = showProject.sequence - 1 >= 0? showProject.sequence - 1 : projectLength + showProject.sequence - 1 
-        const nextProject = projectData.filter((elem)=> elem.sequence == previousProjectIndex)
-        getProjectDetail(nextProject[0].id) 
+        const previousProject = projectData.filter((elem)=> elem.sequence == previousProjectIndex)
+        setShowProject(previousProject[0])
     }
+    
     return (
         <>
             <div className={`${isShowModal ? "brightness-75 blur-sm " : ""}relative `}>
