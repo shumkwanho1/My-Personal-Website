@@ -6,14 +6,12 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
-import pbClient from "./utils/pocketbase"
-
-
+import { projectService } from './utils/ProjectService';
+import { projectType } from './utils/type';
 export default async function Home() {
 
-  const data = await pbClient.getProjects()
+  const data:projectType[] = await projectService.getProject() 
 
-  
   return (
     <div>
       <Nav />

@@ -1,13 +1,14 @@
 'use client'
 import Image from "next/image"
-import { WEB_URL } from "../../global"
 import TechStack from "./TechStack"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft, faArrowRight, faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons"
-import { useState } from "react"
+
+import { projectType } from "../utils/type"
+import { showRandomPhoto } from "../utils/showRandomPhoto"
 type modalProps = {
-    projectData: any
+    projectData: projectType
     removeModal: () => void
     nextProject: () => void
     previousProject: () => void
@@ -21,14 +22,12 @@ export default function Modal(modalProps: modalProps) {
 
 
 
-    const { collectionId, expand, full_description, id, github_link, main_photo, project_name, deployed_link } = projectData
-
+    const { full_description, id, github_link, project_name, deployed_link, photos, features, tech_stacks } = projectData
+    const showPhoto = showRandomPhoto(photos!)
 
 
     const deployed = deployed_link != ""
 
-    const feature = expand?.feature_via_project
-    const techStack = expand?.techStack
 
 
 
@@ -43,7 +42,7 @@ export default function Modal(modalProps: modalProps) {
 
                         <div className="h-50% w-full mb-4">
                             <Image
-                                src={`${WEB_URL}/api/files/${collectionId}/${id}/${main_photo}`}
+                                src={showPhoto}
                                 alt={project_name}
                                 height={100}
                                 width={700}
@@ -58,11 +57,11 @@ export default function Modal(modalProps: modalProps) {
                             <div className=" text-xl mb-6 cursor-pointer"> Features: &emsp;
                             </div>
                             <div className="h-fit">
-                                {feature.map((elem: any, index: string) => {
+                                {features!.map((feature) => {
                                     return (
-                                        <div key={index} >
-                                            <span className="font-bold">{elem.feature} : </span>
-                                            <span className="italic text-sm"> {elem.description}</span>
+                                        <div key={feature.id} >
+                                            <span className="font-bold">{feature.feature} : </span>
+                                            <span className="italic text-sm"> {feature.description}</span>
                                         </div>
                                     )
                                 })}
@@ -70,7 +69,7 @@ export default function Modal(modalProps: modalProps) {
                             <hr className="border-indigo-700 my-6" />
                             <div className=" text-xl mb-4">{deployed ? "Deployed " : "GitHub "} Link:</div>
                             <div className="hover:cursor-pointer italic ml-6 truncate">
-                                <Link href={deployed ? deployed_link : github_link}>
+                                <Link href={deployed ? deployed_link || "" : github_link || ""}>
                                     {deployed ? deployed_link : github_link}
                                 </Link>
                             </div>
@@ -79,7 +78,7 @@ export default function Modal(modalProps: modalProps) {
 
                             <div className=" text-xl mb-6">Tech Stack:</div>
                             <div className="grid grid-cols-3 gap-4 justify-items-center">
-                                {techStack.map((item: any,) => <TechStack techStack={item} />)}
+                                {tech_stacks!.map((tech_stack) => <TechStack techStack={tech_stack} />)}
                             </div>
                         </div>
 

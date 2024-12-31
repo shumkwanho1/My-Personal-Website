@@ -2,7 +2,6 @@
 import { useState } from "react"
 import ProjectCard from "./ProjectCard"
 import Modal from "./Modal"
-import pbClient from "../utils/pocketbase"
 import Link from "next/link"
 type projectProps = {
     projectData: any[]

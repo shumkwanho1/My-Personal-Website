@@ -1,13 +1,13 @@
-import pbClient from "../utils/pocketbase"
+import { projectService } from "../utils/ProjectService"
 import Project from "./Project"
 export default async function ProjectPage() {
 
-    const projectData = await pbClient.getProjects()
-
-    
+    const projectData = await projectService.getProject()
 
 
-    
+
+
+
 
 
     return (

@@ -1,9 +1,8 @@
-
 import Image from "next/image";
 import Link from "next/link";
-import { WEB_URL } from "../../global";
+import { projectType } from "../utils/type";
 type projectsProps = {
-    projectData: any[]
+    projectData: projectType[]
 }
 
 export default async function Projects(projectsProps: projectsProps) {
@@ -19,31 +18,31 @@ export default async function Projects(projectsProps: projectsProps) {
             <div className="font-sans px-40 text-[#5569DC] text-xl mt-3 font-thin tracking-wider pb-16 mt-3">WHAT I'VE ATTEMPED</div>
             <div className="slider">
                 <div className="slide-track">
-                    {projectData.map((elem, index) => {
+                    {projectData.map((project, index) => {
                         return (
                             <div className="slide px-2 relative" key={index}>
                                 <Image
-                                    src={`${WEB_URL}/api/files/${elem.collectionId}/${elem.id}/${elem.main_photo}`}
-                                    alt={elem.project_name}
+                                    src={project.photos?.find((photo) => photo.is_main_photo)?.url || ''}
+                                    alt={project.project_name}
                                     height={200}
                                     width={300}
                                     style={{ objectFit: "cover" }} />
-                                <div className="absolute capitalize text-xl mt-2 font-semibold text-indigo-500">{elem.project_name}</div>
-                                <div className="absolute top-[130%] italic w-4/5 leading-5 capitalize">{elem.description}</div>
+                                <div className="absolute capitalize text-xl mt-2 font-semibold text-indigo-500">{project.project_name}</div>
+                                <div className="absolute top-[130%] italic w-4/5 leading-5 capitalize">{project.description}</div>
                             </div>
                         )
                     })}
-                    {projectData.map((elem, index) => {
+                    {projectData.map((project, index) => {
                         return (
                             <div className="slide px-2 relative" key={index}>
                                 <Image
-                                    src={`${WEB_URL}/api/files/${elem.collectionId}/${elem.id}/${elem.main_photo}`}
-                                    alt={elem.project_name}
+                                    src={project.photos?.find((photo) => photo.is_main_photo)?.url || ''}
+                                    alt={project.project_name}
                                     height={200}
                                     width={300}
                                     style={{ objectFit: "cover" }} />
-                                <div className="absolute capitalize text-xl mt-4 font-semibold text-indigo-500">{elem.project_name}</div>
-                                <div className="absolute top-[130%] italic w-4/5 leading-5 capitalize">{elem.description}</div>
+                                <div className="absolute capitalize text-xl mt-4 font-semibold text-indigo-500">{project.project_name}</div>
+                                <div className="absolute top-[130%] italic w-4/5 leading-5 capitalize">{project.description}</div>
                             </div>
                         )
                     })}

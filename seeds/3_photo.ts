@@ -1,0 +1,75 @@
+import { Knex } from "knex";
+
+export async function seed(knex: Knex): Promise<void> {
+
+    await knex("photos").del();
+    await knex("photos").insert([
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/game+of+life+main.gif",
+            is_main_photo:true,
+            project_id:1
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/game+of+life.png",
+            project_id:1
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/chinese+chess+main.png",
+            is_main_photo:true,
+            project_id:2
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/and+then+main.png",
+            is_main_photo:true,
+            project_id:3
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/and+then1.png",
+            project_id:3
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/and+then2.png",
+            project_id:3
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/storybook+main.png",
+            is_main_photo:true,
+            project_id:4
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/storybook1.png",
+            project_id:4
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/storybook+2.png",
+            project_id:4
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/monster+parent+main.png",
+            is_main_photo:true,
+            project_id:5
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/monster+parent1.png",
+            project_id:5
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/monster+parent2.png",
+            project_id:5
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/auto+job+main.gif",
+            is_main_photo:true,
+            project_id:6
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/auto+job1.png",
+            project_id:6
+        },
+        {
+            url:"https://s3.ap-southeast-1.amazonaws.com/cdn.shumkh.com/project-photo/personal+website+main.png",
+            is_main_photo:true,
+            project_id:7
+        },
+    ])
+}
