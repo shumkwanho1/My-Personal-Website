@@ -106,10 +106,6 @@ export async function seed(knex: Knex): Promise<void> {
         },
         {
             project_id: 7,
-            tech_stack_id: 5,
-        },
-        {
-            project_id: 7,
             tech_stack_id: 6,
         },
         {
@@ -118,11 +114,15 @@ export async function seed(knex: Knex): Promise<void> {
         },
         {
             project_id: 7,
-            tech_stack_id: 9,
+            tech_stack_id: 8,
         },
         {
             project_id: 7,
             tech_stack_id: 10,
+        },
+        {
+            project_id: 7,
+            tech_stack_id: 11,
         },
     ])
 }

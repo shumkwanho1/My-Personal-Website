@@ -1,3 +1,3 @@
-yarn knex migrate:rollback
-yarn knex migrate:latest
-yarn knex seed:run
+knex migrate:rollback
+knex migrate:latest
+knex seed:run
