@@ -2,7 +2,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { projectType } from "../utils/type"
-import { showRandomPhoto } from "../utils/showRandomPhoto"
 
 
 type projectCardProps = {
