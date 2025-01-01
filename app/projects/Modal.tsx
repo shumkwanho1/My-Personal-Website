@@ -8,7 +8,7 @@ import { faArrowLeft, faArrowRight, faCaretDown, faCaretUp } from "@fortawesome/
 import { projectType } from "../utils/type"
 import { showRandomPhoto } from "../utils/showRandomPhoto"
 type modalProps = {
-    projectData: projectType
+    projectData: projectType | null
     removeModal: () => void
     nextProject: () => void
     previousProject: () => void
@@ -16,7 +16,8 @@ type modalProps = {
 export default function Modal(modalProps: modalProps) {
     const { projectData, removeModal, nextProject, previousProject } = modalProps
 
-    if (Object.keys(projectData).length == 0) {
+
+    if (!projectData) {
         return <></>
     }
 
@@ -26,8 +27,8 @@ export default function Modal(modalProps: modalProps) {
     const showPhoto = showRandomPhoto(photos!)
 
 
-    const deployed = deployed_link != ""
-
+    const deployed = !!deployed_link
+    
 
 
 
@@ -87,10 +88,10 @@ export default function Modal(modalProps: modalProps) {
                     </div>
                 </div>
             </div>
-            <div className="fixed top-[22rem] left-[16%] text-7xl z-40 text-white hover:cursor-pointer" onClick={(() => nextProject())}>
+            <div className="fixed top-[45vh] left-[16%] text-7xl z-40 text-white hover:cursor-pointer" onClick={(() => nextProject())}>
                 <FontAwesomeIcon icon={faArrowLeft} />
             </div>
-            <div className="fixed top-[22rem] right-[16%] text-7xl z-40 text-white hover:cursor-pointer" onClick={() => previousProject()}>
+            <div className="fixed top-[45vh] right-[16%] text-7xl z-40 text-white hover:cursor-pointer" onClick={() => previousProject()}>
                 <FontAwesomeIcon icon={faArrowRight} />
             </div>
         </>

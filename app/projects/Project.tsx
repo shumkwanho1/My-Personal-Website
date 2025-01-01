@@ -3,39 +3,49 @@ import { useState } from "react"
 import ProjectCard from "./ProjectCard"
 import Modal from "./Modal"
 import Link from "next/link"
+import { projectType } from "../utils/type"
+
 type projectProps = {
-    projectData: any[]
+    projectData: projectType[]
 }
 export default function Project(projectProps: projectProps) {
     const { projectData } = projectProps
     const projectLength = projectData.length
     const [isShowModal, setIsShowModal] = useState(false)
-    const [showProject, setShowProject] = useState<any>({})
-
+    const [thisProjectData, setThisProjectData] = useState<projectType | null>(null)
+    // const [nextProjectData, setNextProjectData] = useState<projectType>(projectData[0])
+    // const [previousProjectData, setPreviousProjectData] = useState<projectType>(projectData)
 
 
     function removeModal() {
-        setShowProject({})
+        setThisProjectData(null)
         setIsShowModal(false)
     }
 
-    function showModal(projectData: any) {
-        setShowProject(projectData)
+    function showModal(projectData: projectType) {
+        setThisProjectData(projectData)
         setIsShowModal(true)
     }
 
     function nextProject() {
-        const nextProjectIndex = (showProject.sequence + 1) % projectLength
-        const nextProject = projectData.filter((elem) => elem.sequence == nextProjectIndex)
+        if (!thisProjectData) {
+            return
+        }
+        const nextProjectIndex = (thisProjectData.id + 1) % projectLength
+        const nextProject = projectData.filter((elem) => elem.id == nextProjectIndex)
 
-        setShowProject(nextProject[0])
+        setThisProjectData(nextProject[0])
     }
     function previousProject() {
-        const previousProjectIndex = showProject.sequence - 1 >= 0 ? showProject.sequence - 1 : projectLength + showProject.sequence - 1
-        const previousProject = projectData.filter((elem) => elem.sequence == previousProjectIndex)
-        setShowProject(previousProject[0])
+        if (!thisProjectData) {
+            return
+        }
+        const previousProjectIndex = thisProjectData.id - 1 >= 0 ? thisProjectData.id - 1 : projectLength + thisProjectData.id - 1
+        const previousProject = projectData.filter((elem) => elem.id == previousProjectIndex)
+        setThisProjectData(previousProject[0])
     }
-
+    console.log(isShowModal);
+    
     return (
         <>
             <div className={`${isShowModal ? "brightness-75 blur-sm " : ""}relative `}>
@@ -47,7 +57,7 @@ export default function Project(projectProps: projectProps) {
                     </div>
                 </div>
             </div>
-            <Modal projectData={showProject} removeModal={removeModal} nextProject={nextProject} previousProject={previousProject} />
+            <Modal projectData={thisProjectData} removeModal={removeModal} nextProject={nextProject} previousProject={previousProject} />
 
             {!isShowModal ?
                 <Link href="/">

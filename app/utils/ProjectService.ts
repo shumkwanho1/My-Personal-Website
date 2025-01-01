@@ -12,6 +12,8 @@ class ProjectService {
                 id, description, full_description, github_link, deployed_link, project_name
             FROM 
                 projects
+            ORDER BY
+                id DESC
             `)).rows as any as projectType[]
 
 
@@ -19,6 +21,7 @@ class ProjectService {
             project.features = await this.getProjectFeature(project.id)
             project.photos = await this.getProjectPhoto(project.id)
             project.tech_stacks = await this.getProjectTechStack(project.id)
+            project.id -= 1
         }
 
         return data

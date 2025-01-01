@@ -14,7 +14,6 @@ export default function ProjectCard(projectCardProps: projectCardProps) {
 
     const { projectData, showModal } = projectCardProps
     const { full_description, id, github_link, project_name, deployed_link, photos } = projectData
-    const showPhoto = showRandomPhoto(photos!)
     const deployed = deployed_link != ""
 
     //animation : 
@@ -23,8 +22,7 @@ export default function ProjectCard(projectCardProps: projectCardProps) {
         <div className="h-96 w-96 rounded-md overflow-hidden m-5 project-card" onClick={() => { showModal(projectData) }} >
             <div className="h-3/5 w-full relative cursor-pointer" >
                 <Image
-                    src={showPhoto}
-                    alt={project_name}
+                    src={photos?.find((photo) => photo.is_main_photo)?.url || "a"} alt={project_name}
                     fill
                 />
             </div>
