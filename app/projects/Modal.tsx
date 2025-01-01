@@ -3,10 +3,11 @@ import Image from "next/image"
 import TechStack from "./TechStack"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowLeft, faArrowRight, faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons"
-
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import { projectType } from "../utils/type"
-import { showRandomPhoto } from "../utils/showRandomPhoto"
+import Carousel from "react-multi-carousel"
+import "react-multi-carousel/lib/styles.css";
+
 type modalProps = {
     projectData: projectType | null
     removeModal: () => void
@@ -15,22 +16,24 @@ type modalProps = {
 }
 export default function Modal(modalProps: modalProps) {
     const { projectData, removeModal, nextProject, previousProject } = modalProps
-
-
     if (!projectData) {
         return <></>
     }
-
+    const responsive = {
+        desktop: {
+            breakpoint: {
+                max: 3000,
+                min: 0
+            },
+            items: 1,
+            slidesToSlide: 1
+        }
+    }
 
 
     const { full_description, id, github_link, project_name, deployed_link, photos, features, tech_stacks } = projectData
-    const showPhoto = showRandomPhoto(photos!)
-
-
+    const autoplay = photos?.length != 1
     const deployed = !!deployed_link
-    
-
-
 
 
     return (
@@ -42,15 +45,23 @@ export default function Modal(modalProps: modalProps) {
                     <div className="relative">
 
                         <div className="h-50% w-full mb-4">
-                            <Image
-                                src={showPhoto}
-                                alt={project_name}
-                                height={100}
-                                width={700}
-                            />
+                            <div className="sticky">
+                                <Carousel responsive={responsive} infinite ssr autoPlay={autoplay} autoPlaySpeed={2000} arrows={false}>
+                                    {photos?.map((photo) => {
+                                        return (
+                                            <Image
+                                                src={photo.url}
+                                                alt={photo.url}
+                                                height={100}
+                                                width={700}
+                                            />
+                                        )
+                                    })}
+                                </Carousel>
+                            </div>
                         </div>
 
-                        <div className="h-3/5 w-full ">
+                        <div className="h-1/2 w-full ">
                             <h2 className="text-2xl text-[#5569DC] my-6 capitalize">{project_name}</h2>
                             <p>{full_description}</p>
 

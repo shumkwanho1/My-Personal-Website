@@ -13,8 +13,6 @@ export default function Project(projectProps: projectProps) {
     const projectLength = projectData.length
     const [isShowModal, setIsShowModal] = useState(false)
     const [thisProjectData, setThisProjectData] = useState<projectType | null>(null)
-    // const [nextProjectData, setNextProjectData] = useState<projectType>(projectData[0])
-    // const [previousProjectData, setPreviousProjectData] = useState<projectType>(projectData)
 
 
     function removeModal() {
@@ -44,7 +42,7 @@ export default function Project(projectProps: projectProps) {
         const previousProject = projectData.filter((elem) => elem.id == previousProjectIndex)
         setThisProjectData(previousProject[0])
     }
-    console.log(isShowModal);
+
     
     return (
         <>
@@ -57,13 +55,13 @@ export default function Project(projectProps: projectProps) {
                     </div>
                 </div>
             </div>
-            <Modal projectData={thisProjectData} removeModal={removeModal} nextProject={nextProject} previousProject={previousProject} />
+            
 
             {!isShowModal ?
                 <Link href="/">
                     <div className="fixed bottom-12 right-16 bg-indigo-500 text-white p-2 rounded-md">Back to Main Page</div>
                 </Link>
-                : ""
+                : <Modal projectData={thisProjectData} removeModal={removeModal} nextProject={nextProject} previousProject={previousProject} />
             }
 
         </>
