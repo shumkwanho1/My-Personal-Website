@@ -30,9 +30,9 @@ export default function Skills() {
         ,
 
         framework: [
-            { name: "Express", proficiency: 70 },
+            { name: "Express", proficiency: 80 },
             { name: "Spring Boot", proficiency: 60 },
-            { name: "Hibernate", proficiency: 60 },
+            { name: "Hibernate", proficiency: 50 },
             { name: "ReactJS", proficiency: 70 },
             { name: "openCV", proficiency: 50 },]
         ,

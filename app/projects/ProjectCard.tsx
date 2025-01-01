@@ -12,8 +12,8 @@ type projectCardProps = {
 export default function ProjectCard(projectCardProps: projectCardProps) {
 
     const { projectData, showModal } = projectCardProps
-    const { full_description, id, github_link, project_name, deployed_link, photos } = projectData
-    const deployed = deployed_link != ""
+    const { full_description, github_link, project_name, deployed_link, photos } = projectData
+    const deployed = !!deployed_link
 
     //animation : 
     return (<>

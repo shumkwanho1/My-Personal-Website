@@ -5,10 +5,11 @@ dotenv.config()
 
 const config: { [key: string]: Knex.Config } = {
   development: {
-    client: "pg",
+    client: "postgresql",
     connection: {
       database: process.env.DB_NAME,
-      host: process.env.DB_HOST
+      user: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD
     },
     pool: {
       min: 2,
