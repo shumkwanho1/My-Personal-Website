@@ -50,7 +50,7 @@ export default function Intro() {
                 <div className="text-lg font-thin text-white font-sans mb-16">+852 9327-3560</div>
                 {/* can make some animation when hover */}
                 
-                <a href="/shumCV.pdf">
+                <a href="/Shum Kwun Ho CV.pdf" target="_blank">
                     <button className="bg-white h-12 w-32 rounded-md hover:shadow-xl">
                         CV &ensp;
                         <FontAwesomeIcon icon={faEnvelope} />
