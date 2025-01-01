@@ -12,7 +12,7 @@ export default function NavItems(navItemProps: navItemProps) {
     
     return (
         <>
-        <div className="mx-2 capitalize font-charm hover:cursor-pointer" key={navItemProps.index} onClick={() => scroll(navItemProps.name)}>{navItemProps.name}</div>
+        <div className="mx-2 capitalize font-charm hover:cursor-pointer pr-8" key={navItemProps.index} onClick={() => scroll(navItemProps.name)}>{navItemProps.name}</div>
         </>
     )
 }

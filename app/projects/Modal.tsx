@@ -3,10 +3,11 @@ import Image from "next/image"
 import TechStack from "./TechStack"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { faArrowLeft, faArrowRight, faXmark } from "@fortawesome/free-solid-svg-icons"
 import { projectType } from "../utils/type"
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css";
+
 
 type modalProps = {
     projectData: projectType | null
@@ -95,9 +96,9 @@ export default function Modal(modalProps: modalProps) {
                         </div>
 
 
-
                     </div>
                 </div>
+
             </div>
             <div className="fixed top-[45vh] left-[16%] text-7xl z-40 text-white hover:cursor-pointer" onClick={(() => nextProject())}>
                 <FontAwesomeIcon icon={faArrowLeft} />
@@ -105,6 +106,7 @@ export default function Modal(modalProps: modalProps) {
             <div className="fixed top-[45vh] right-[16%] text-7xl z-40 text-white hover:cursor-pointer" onClick={() => previousProject()}>
                 <FontAwesomeIcon icon={faArrowRight} />
             </div>
+
         </>
     )
 }

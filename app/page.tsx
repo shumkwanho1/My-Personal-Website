@@ -1,4 +1,4 @@
-
+import WelcomingBanner from './components/WelcomingBanner';
 import Nav from './components/Nav';
 import Intro from './components/Intro';
 import About from './components/About';
@@ -24,7 +24,7 @@ export default async function Home() {
       </div>
 
       <Skills />
-
+      <WelcomingBanner/>
     </div>
 
   );

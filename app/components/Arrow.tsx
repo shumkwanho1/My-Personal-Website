@@ -9,7 +9,7 @@ export default function Arrow() {
     }
     return (<>
         {
-            <div id="scroll-arrow" className={`fixed bottom-12 right-12 text-2xl p-2 border-2 h-12 w-12 text-center rounded-full bg-indigo-500 show-arrow`} onClick={() => scrollUp()}>
+            <div id="scroll-arrow" className='fixed bottom-12 right-12 text-2xl p-2 border-2 h-12 w-12 text-center rounded-full bg-indigo-500 show-arrow cursor-pointer' onClick={() => scrollUp()}>
                 <div className='relative bottom-0.5 text-white'>
                     <FontAwesomeIcon icon={faArrowUp} />
                 </div>
