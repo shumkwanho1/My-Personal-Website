@@ -18,7 +18,7 @@ export default async function Home() {
       <Intro />
       <Projects projectData={data} />
       <About />
-      <div className='flex w-full justify-around pl-[10vw] pt-12 pb-20' id="education & experience">
+      <div className='w-full px-[10vw] pt-12 pb-20 flex flex-col md:flex-row md:justify-between ' id="education & experience">
         <Education />
         <Experience />
       </div>
