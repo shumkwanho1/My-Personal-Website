@@ -41,7 +41,8 @@ export default function Modal(modalProps: modalProps) {
         <>
             <div className="fixed w-screen h-screen z-10 top-0 left-0 show-modal blur-none">
                 <div className=" w-full h-full bg-transprent z-20 " onClick={() => removeModal()}></div>
-                <div className="fixed bottom-[50%] right-[50%] translate-x-1/2 translate-y-1/2 w-[50%] h-[90%] bg-white z-30 rounded-xl p-12 overflow-y-scroll overflow-x-visible overscroll-contain no-scrollbar">
+                {/* modal */}
+                <div className="fixed bottom-[50%] right-[50%] translate-x-1/2 translate-y-1/2 w-[50%] h-[90%] min-w-[20rem] bg-white z-30 rounded-xl p-12 overflow-y-scroll overflow-x-visible overscroll-contain no-scrollbar">
 
                     <div className="relative">
 
@@ -97,13 +98,15 @@ export default function Modal(modalProps: modalProps) {
 
 
                     </div>
+                <div className="absolute text-xl z-40 hover:cursor-pointer right-4 top-4" onClick={removeModal}>
+                    <FontAwesomeIcon icon={faXmark} />
                 </div>
-
+                </div>
             </div>
-            <div className="fixed top-[45vh] left-[16%] text-7xl z-40 text-white hover:cursor-pointer" onClick={(() => nextProject())}>
+            <div className="fixed text-7xl z-40 text-white hover:cursor-pointer sm:top-[45vh] sm:left-20 " onClick={(() => nextProject())}>
                 <FontAwesomeIcon icon={faArrowLeft} />
             </div>
-            <div className="fixed top-[45vh] right-[16%] text-7xl z-40 text-white hover:cursor-pointer" onClick={() => previousProject()}>
+            <div className="fixed text-7xl z-40 text-white hover:cursor-pointer sm:top-[45vh] sm:right-20" onClick={() => previousProject()}>
                 <FontAwesomeIcon icon={faArrowRight} />
             </div>
 

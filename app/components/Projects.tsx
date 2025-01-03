@@ -14,8 +14,8 @@ export default async function Projects(projectsProps: projectsProps) {
 
     return (
         <section className="w-full bg-white pt-12 pb-20" id="projects">
-            <div className="font-charm font-medium px-40 text-5xl text-[#5569DC] pt-3 ">Projects</div>
-            <div className="font-sans px-40 text-[#5569DC] text-xl mt-3 font-thin tracking-wider pb-16 mt-3">WHAT I'VE ATTEMPED</div>
+            <div className="font-charm font-medium pl-[10vw] text-5xl text-[#5569DC] pt-3 ">Projects</div>
+            <div className="font-sans pl-[10vw] text-[#5569DC] text-xl mt-3 font-thin tracking-wider pb-16 mt-3">WHAT I'VE ATTEMPED</div>
             <div className="slider">
                 <div className="slide-track">
                     {projectData.map((project, index) => {
@@ -50,7 +50,7 @@ export default async function Projects(projectsProps: projectsProps) {
             </div>
 
             <Link href={"/projects"}>
-                <button className="block mx-auto text-xl mt-10 bg-[#5569DC] px-3 py-2 rounded-lg text-white shadow-lg" >See All Projects
+                <button className="block mx-auto h-16 w-48 text-xl mt-10 bg-[#5569DC] px-3 py-2 rounded-lg text-white shadow-lg" >See All Projects
                 </button>
             </Link>
         </section>

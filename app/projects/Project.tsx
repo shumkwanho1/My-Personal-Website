@@ -48,7 +48,7 @@ export default function Project(projectProps: projectProps) {
         <>
             <div className={`${isShowModal ? "brightness-75 blur-sm " : ""}relative `}>
                 <div className="px-16 bg-[#EFF1FB]">
-                    <div className="grid grid-cols-2 gap-2 justify-items-center xl:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-2 justify-items-center md:grid-cols-2 xl:grid-cols-3">
                         {projectData.map((project: any) => (
                             <ProjectCard projectData={project} key={project.id} showModal={showModal} />
                         ))}

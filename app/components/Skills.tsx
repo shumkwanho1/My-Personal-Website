@@ -72,13 +72,13 @@ export default function Skills() {
 
     return (
         <>
-            <section className="w-full bg-[#EFF1FB] px-40 pt-12 pb-20" id="skills and languages">
+            <section className="w-full bg-[#EFF1FB] pl-[10vw] pt-12 pb-20" id="skills and languages">
                 <div className="font-charm font-medium text-5xl text-[#5569DC] pt-3">Skills & Languages</div>
                 <div className="font-sans text-[#5569DC] text-xl mt-5 font-thin tracking-wider">WHAT I BRING TO TABLE</div>
 
-                <div className="mt-16 flex h-60">
-                    <div className="flex-1">
-                        <div className={`mb-4 ${tangerine.className} text-5xl`}>Languages</div>
+                <div className='grid grid-cols-1 gap-4 lg:grid-cols-2 mt-8'>
+                    <div>
+                        <div className={`mb-4 ${tangerine.className} text-4xl lg:text-5xl`}>Languages</div>
                         {mySkills.language.map((elem, index) => {
                             return (
                                 <div className={`flex items-center pl-3 pb-2  ${showSkillAnimation ? 'skillbar' : ''}`} key={index}>
@@ -91,8 +91,8 @@ export default function Skills() {
                         })}
                     </div>
 
-                    <div className="flex-1 ml-8 h-40">
-                        <div className={`mb-4 ${tangerine.className} text-5xl`}>Framework and Library</div>
+                    <div className=" h-fit">
+                        <div className={`mb-4 ${tangerine.className} text-4xl lg:text-5xl`}>Framework and Library</div>
 
                         {mySkills.framework.map((elem, index) => {
                             return (
@@ -105,10 +105,10 @@ export default function Skills() {
                             )
                         })}
                     </div>
-                </div>
-                <div className="mt-16 flex">
-                    <div className="flex-1">
-                        <div className={`mb-4 ${tangerine.className} text-5xl`}>Database</div>
+
+
+                    <div className="">
+                        <div className={`mb-4 ${tangerine.className} text-4xl lg:text-5xl`}>Database</div>
 
                         {mySkills.database.map((elem, index) => {
                             return (
@@ -124,11 +124,11 @@ export default function Skills() {
 
                     </div>
 
-                    <div className="flex-1 ml-8">
-                        <div className={`mb-4 ${tangerine.className} text-5xl`}>Other Tools</div>
+                    <div className="">
+                        <div className={`mb-4 ${tangerine.className} text-4xl lg:text-5xl`}>Other Tools</div>
                         {mySkills.tools.map((elem, index) => {
                             return (
-                                <div className={`flex items-center pl-3 pb-2 ${showSkillAnimation? 'skillbar' : ''}`} key={index}>
+                                <div className={`flex items-center pl-3 pb-2 ${showSkillAnimation ? 'skillbar' : ''}`} key={index}>
                                     <div className="flex-1">{elem.name}</div>
                                     <div className={`[flex:2] h-1.5 flex items-center`}>
                                         <SkillBar proficiency={elem.proficiency} />
@@ -138,9 +138,10 @@ export default function Skills() {
                         })}
                     </div>
                 </div>
+
             </section>
-            {y > 600? <Arrow /> : ""}
-            
+            {y > 600 ? <Arrow /> : ""}
+
         </>
     )
 }

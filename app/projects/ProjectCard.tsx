@@ -18,7 +18,7 @@ export default function ProjectCard(projectCardProps: projectCardProps) {
     //animation : 
     return (<>
 
-        <div className="h-96 w-96 rounded-md overflow-hidden m-5 project-card" onClick={() => { showModal(projectData) }} >
+        <div className="w-4/5 h-4/5 min-w-72 min-h-72 max-h-96 max-w-96 rounded-md overflow-hidden m-5 project-card" onClick={() => { showModal(projectData) }} >
             <div className="h-3/5 w-full relative cursor-pointer" >
                 <Image
                     src={photos?.find((photo) => photo.is_main_photo)?.url || "a"} alt={project_name}
