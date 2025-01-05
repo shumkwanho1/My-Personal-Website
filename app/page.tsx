@@ -18,9 +18,10 @@ export default async function Home() {
       <Intro />
       <Projects projectData={data} />
       <About />
-      <div className='w-full px-[10vw] pt-12 pb-20 flex flex-col md:flex-row md:justify-between ' id="education & experience">
+      <div className='w-full px-[10vw] pt-12 pb-20 grid grid-cols-1 md:grid-cols-2' id="education & experience">
         <Education />
         <Experience />
+        <div className='xl:flex-1'></div>
       </div>
 
       <Skills />

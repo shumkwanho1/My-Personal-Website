@@ -1,6 +1,6 @@
 export default function Education() {
     return (
-        <section className="mb-8">
+        <section className="mb-8 ">
             <div className="font-charm font-medium text-5xl text-[#5569DC] pt-3">Education</div>
             <div className="font-sans text-[#5569DC] text-xl mt-3 font-thin tracking-wider">WHAT I'VE LEARNED</div>
 

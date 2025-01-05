@@ -91,16 +91,16 @@ export default function Modal(modalProps: modalProps) {
                             <hr className="border-indigo-700 my-6" />
 
                             <div className=" text-xl mb-6">Tech Stack:</div>
-                            <div className="grid grid-cols-3 gap-4 justify-items-center">
+                            <div className="grid grid-cols-2 gap-4 justify-items-center md:grid-cols-3">
                                 {tech_stacks!.map((tech_stack) => <TechStack techStack={tech_stack} />)}
                             </div>
                         </div>
 
 
+                        <div className="fixed text-xl z-40 hover:cursor-pointer right-4 top-4 hover:animate-spin" onClick={removeModal}>
+                            <FontAwesomeIcon icon={faXmark} />
+                        </div>
                     </div>
-                <div className="absolute text-xl z-40 hover:cursor-pointer right-4 top-4" onClick={removeModal}>
-                    <FontAwesomeIcon icon={faXmark} />
-                </div>
                 </div>
             </div>
             <div className="fixed text-7xl z-40 text-white hover:cursor-pointer sm:top-[45vh] sm:left-20 " onClick={(() => nextProject())}>

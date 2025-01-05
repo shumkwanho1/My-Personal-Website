@@ -1,6 +1,6 @@
 export default function Experience() {
     return (
-        <section className="">
+        <section className="flex-1 ">
             <div className="font-charm font-medium text-5xl text-[#5569DC] pt-3">Experience</div>
             <div className="font-sans text-[#5569DC] text-xl mt-3 font-thin tracking-wider">WHAT I'VE WORKED</div>
 
